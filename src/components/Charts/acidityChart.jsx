@@ -1,15 +1,15 @@
 import React from 'react';
 import {AreaChart, Area, Tooltip, CartesianGrid, XAxis, YAxis} from 'recharts';
-import data from '../../data/humidity_data.json'
+import data from '../../data/acidity_data.json'
 
 
-export default function humidityChart(props){
+export default function acidityChart(props){
 
     return(
         <AreaChart width={props.width - 10} height={props.height - 80} data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <XAxis allowDataOverflow = {true} type="category" angle = '-45' dataKey="week" />
-        <YAxis />
+        <YAxis label="%" />
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#33E3FF" stopOpacity={0.8}/>
