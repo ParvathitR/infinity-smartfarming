@@ -1,11 +1,12 @@
 import React from 'react';
 import FlexView from 'react-flexview/lib';
 import CompositionChart from '../components/Charts/SoilCompositionChart';
-import HumidityChart from '../components/Charts/humidityChart';
+import AcidityChart from '../components/Charts/acidityChart';
+import MoistureChart from '../components/Charts/moistureChart';
 import Wrapper from '../components/Wrapper';
 import FarmCard from '../components/FarmCard';
 import DataCard from '../components/DataCard';
-import moistureData from '../data/humidity_data.json'
+import moistureData from '../data/moisture_data.json'
 import acidityData from '../data/acidity_data.json'
 import _ from 'lodash';
 import ImageCard from '../components/ImageCard';
@@ -24,6 +25,7 @@ export default function Overview() {
              });
         });
         setMoisture(input);
+
         input = [];
         _.each(acidityData, (d) => {
             input.push({
@@ -97,14 +99,14 @@ export default function Overview() {
             marginRight='30px'
             >
                 <Wrapper 
-                title= "Soil moisture"
+                title= "Soil Moisture"
                 subTitle= "OVERVIEW"
                 height = {450}
                 width = {1380}
                 collapse='true'
                 fill= {false}
                 >
-                    <HumidityChart data = {moisture}/>
+                    <MoistureChart data = {moisture}/>
                 </Wrapper>   
             </FlexView>
         }
@@ -118,14 +120,14 @@ export default function Overview() {
             marginRight='30px'
             >
                 <Wrapper 
-                title= "Atmospheric humidity"
+                title= "pH Level"
                 subTitle= "OVERVIEW"
                 height = {450}
                 width = {1380}
                 collapse='true'
                 fill= {false}
                 >
-                    <HumidityChart data = {acidity}/>
+                    <AcidityChart data = {acidity}/>
                 </Wrapper>
             </FlexView>
         }
